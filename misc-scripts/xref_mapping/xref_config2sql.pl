@@ -72,7 +72,7 @@ foreach my $section ( $config->GroupMembers('species') ) {
 
     printf( "VALUES (%d, %d, '%s', '%s');\n",
             $species_id, $taxonomy_id, $species_name,
-            $config->val( $section, 'aliases' ) );
+            $config->val( $section, 'aliases' )  || $species_name );
   }
 
   print("\n");

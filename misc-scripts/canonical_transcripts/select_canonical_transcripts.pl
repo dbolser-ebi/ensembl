@@ -88,7 +88,7 @@ unless ($write) {
 }
 
 my $dba =
-  new Bio::EnsEMBL::DBSQL::DBAdaptor(
+  Bio::EnsEMBL::DBSQL::DBAdaptor->new(
       -host   => $host,
       -user   => $user,
       -port   => $port,
@@ -104,7 +104,7 @@ if($dnadbname) {
            "to connect to DNA DB!");
   }
   my $dna_db =
-      new Bio::EnsEMBL::DBSQL::DBAdaptor(
+      Bio::EnsEMBL::DBSQL::DBAdaptor->new(
           -host   => $dnahost,
           -user       => $dnauser,
           -port       => $dnaport,
@@ -130,7 +130,7 @@ if ($ccds_dbname) {
            "to connect to CCDS DB!");
   }
   $ccds_dba =
-  new Bio::EnsEMBL::DBSQL::DBAdaptor(
+  Bio::EnsEMBL::DBSQL::DBAdaptor->new(
       -host   => $ccds_host,
       -user   => $ccds_user,
       -port   => $ccds_port,
@@ -143,7 +143,7 @@ if ($ccds_dbname) {
 
 my $log_fh;
 if ($log_path) {
-    $log_fh = IO::File->new($log_path,"w")
+    $log_fh = IO::File->new($log_path, "w")
         or throw ("Could not open logging file.");
 }
 
